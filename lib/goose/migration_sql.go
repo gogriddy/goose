@@ -152,6 +152,8 @@ func runSQLMigration(conf *DBConf, db *sql.DB, scriptFile string, v int64, direc
 	// records the version into the version table or returns an error and
 	// rolls back the transaction.
 	for _, query := range splitSQLStatements(f, direction) {
+		log.Println("Executing Statement:")
+		log.Println(query)
 		if _, err = txn.Exec(query); err != nil {
 			txn.Rollback()
 			log.Fatalf("FAIL %s (%v), quitting migration.", filepath.Base(scriptFile), err)
