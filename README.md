@@ -1,3 +1,5 @@
+# WARNING - do research on which goose repo/proj to use
+
 [![Documentation](https://godoc.org/github.com/CloudCom/goose?status.png)](http://godoc.org/github.com/CloudCom/goose)
 [![Build Status](https://travis-ci.org/CloudCom/goose.svg?branch=master)](https://travis-ci.org/CloudCom/goose)
 [![Coverage Status](https://coveralls.io/repos/CloudCom/goose/badge.svg?branch=master&service=github)](https://coveralls.io/github/CloudCom/goose?branch=master)
