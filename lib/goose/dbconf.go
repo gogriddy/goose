@@ -95,11 +95,8 @@ func NewDBConf(dbDir, env string) (*DBConf, error) {
 	} else {
 		dbDir = filepath.Dir(cfgFile)
 
-		var err error
-		f, err = yaml.ReadFile(cfgFile)
-		if err != nil {
-			return nil, fmt.Errorf("error loading config file: %s", err)
-		}
+		f, _ = yaml.ReadFile(cfgFile)
+
 	}
 
 	migrationsDir := filepath.Join(dbDir, "migrations")
