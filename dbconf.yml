@@ -1,0 +1,5 @@
+# An example DB conf using billing db for migrations and public.billing_db_version table for migration versioning
+local:
+  driver: postgres
+  open: user=postgres host=postgres dbname=billing sslmode=disable
+  versionTable: billing_db_version

@@ -278,7 +278,7 @@ func EnsureDBVersion(conf *DBConf, db *sql.DB) (int64, error) {
 	panic("failure in EnsureDBVersion()")
 }
 
-// Create the goose_db_version table
+// Create the db version table
 // and insert the initial 0 value into it
 func createVersionTable(conf *DBConf, db *sql.DB) error {
 	txn, err := db.Begin()

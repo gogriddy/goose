@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/CloudCom/goose/lib/goose"
+	"github.com/gogriddy/goose/lib/goose"
 )
 
 var statusCmd = &Command{
@@ -57,7 +57,7 @@ func statusRun(cmd *Command, args ...string) {
 
 func printMigrationStatus(db *sql.DB, version int64, script string) {
 	var row goose.Migration
-	q := fmt.Sprintf("SELECT tstamp, is_applied FROM goose_db_version WHERE version_id=%d ORDER BY tstamp DESC LIMIT 1", version)
+	q := fmt.Sprintf("SELECT tstamp, is_applied FROM %s WHERE version_id=%d ORDER BY tstamp DESC LIMIT 1", goose.TableName(), version)
 	e := db.QueryRow(q).Scan(&row.TStamp, &row.IsApplied)
 
 	if e != nil && e != sql.ErrNoRows {

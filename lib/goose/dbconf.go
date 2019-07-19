@@ -32,6 +32,7 @@ driver: $DB_DRIVER
 import: $DB_DRIVER_IMPORT
 dialect: $DB_DIALECT
 open: $DB_DSN
+versionTable: $DB_VERSION_TABLE
 `
 
 // findDBConf looks for a dbconf.yaml file starting at the given directory and
@@ -122,6 +123,10 @@ func NewDBConf(dbDir, env string) (*DBConf, error) {
 	}
 
 	open, _ := confGet(f, env, "open")
+
+	if versionTable, err := confGet(f, env, "versionTable"); err == nil {
+		SetTableName(versionTable)
+	}
 
 	d := newDBDriver(drv, open)
 

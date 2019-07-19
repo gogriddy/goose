@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/CloudCom/goose/lib/goose"
+	"github.com/gogriddy/goose/lib/goose"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
